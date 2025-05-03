@@ -22,9 +22,6 @@ def df_dx(x, y):
 def y_exact(x):
     return (-1 + np.sqrt((8 * x**3 + 19) / 3)) / 2
 
-# ---------------------------
-# CONFIGURACIÓN INICIAL
-# ---------------------------
 
 x0 = 1        # Valor inicial de x
 y0 = 1        # Valor inicial de y
@@ -46,9 +43,6 @@ taylor_vals = np.zeros(N+1)
 # Asignamos la condición inicial y0 al primer valor de cada método
 euler_vals[0] = heun_vals[0] = rk4_vals[0] = taylor_vals[0] = y0
 
-# ---------------------------
-# CÁLCULOS NUMÉRICOS
-# ---------------------------
 
 # Iteramos desde el paso 0 hasta el paso N-1
 for n in range(N):
@@ -72,9 +66,6 @@ for n in range(N):
     # Método de Taylor de segundo orden
     taylor_vals[n+1] = taylor_vals[n] + h * f(x_n, taylor_vals[n]) + (h**2 / 2) * df_dx(x_n, taylor_vals[n])
 
-# ---------------------------
-# VISUALIZACIÓN DE RESULTADOS
-# ---------------------------
 
 # Creamos una figura con dos gráficas una al lado de la otra
 fig, axs = plt.subplots(1, 2, figsize=(16, 6), gridspec_kw={'width_ratios': [2.5, 1]})
